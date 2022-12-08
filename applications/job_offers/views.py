@@ -54,7 +54,7 @@ class EmployeesByKword(ListView):
 
         if type_qery == "Todos" and sort_qery == "Salario":
             lista = Job.objects.filter(
-                title__icontains=palabra_clave, location__icontains=location_qery).order_by("salary")
+                title__icontains=palabra_clave, location__icontains=location_qery).order_by("-salary")
             print("salary todos")
 
             return lista
@@ -75,7 +75,7 @@ class EmployeesByKword(ListView):
 
         if type_qery == "Presencial" and sort_qery == "Salario":
             lista = Job.objects.filter(
-                title__icontains=palabra_clave, type__exact="Presencial", location__icontains=location_qery).order_by("salary")
+                title__icontains=palabra_clave, type__exact="Presencial", location__icontains=location_qery).order_by("-salary")
             print("salary presencial")
 
             return lista
@@ -98,7 +98,7 @@ class EmployeesByKword(ListView):
         if type_qery == "Remoto" and sort_qery == "Salario":
             lista = Job.objects.filter(
                 title__icontains=palabra_clave, type__exact="Remoto", location__icontains=location_qery).order_by(
-                "salary")
+                "-salary")
             print("salary Remoto")
 
             return lista
